@@ -6,18 +6,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-  deploy:
-    docker:
-      - image: circleci/node:14
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm start
 workflows:
   version: 2
   build-and-deploy:
     jobs:
       - build
-      - deploy:
-          requires:
-            - build
